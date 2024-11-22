@@ -6,16 +6,17 @@
 /*   By: kbarru <kbarru@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 18:09:54 by kbarru            #+#    #+#             */
-/*   Updated: 2024/11/22 08:11:12 by kbarru           ###   ########lyon.fr   */
+/*   Updated: 2024/11/22 08:53:50 by kbarru           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TEST_H
 # define TEST_H
 
-#include "libft.h"
-#include "unity.h"
-#include <stdio.h>
+# include "libft.h"
+# include "unity.h"
+# include <stdio.h>
+# include <stdlib.h>
 
 void	test_ft_atoi_with_positive_numbers(void);
 void	test_ft_atoi_with_negative_numbers(void);
@@ -110,4 +111,33 @@ void	test_ft_strlcpy_zero_length(void);
 void	test_ft_strlcat_basic(void);
 void	test_ft_strlcat_truncate(void);
 void	test_ft_strlcat_zero_length(void);
+
+void	test_ft_toupper_basic(void);
+void	test_ft_toupper_extended(void);
+
+void	test_ft_tolower_basic(void);
+void	test_ft_tolower_extended(void);
+
+void	test_ft_strrchr_basic(void);
+void	test_ft_strrchr_empty_string(void);
+
+void	test_ft_strmapi_basic(void);
+void	test_ft_strmapi_empty_string(void);
+
+void	test_ft_strjoin_basic(void);
+void	test_ft_strjoin_empty_strings(void);
+void	test_ft_strjoin_one_empty_string(void);
+
+void	test_ft_striteri_basic(void);
+void	test_ft_striteri_empty_string(void);
+
+void	test_ft_strdup_basic(void);
+void	test_ft_strdup_empty_string(void);
+
+void	test_ft_strncmp_basic(void);
+void	test_ft_strncmp_empty_strings(void);
+
+void	test_ft_strchr_basic(void);
+void	test_ft_strchr_empty_string(void);
+
 #endif

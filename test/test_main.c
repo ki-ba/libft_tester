@@ -1,4 +1,3 @@
-#include "unity.h"
 #include "test.h"
 
 void setUp(void) {
@@ -8,7 +7,6 @@ void setUp(void) {
 void tearDown(void) {
     // Tear down code here
 }
-
 
 int main(void)
 {
@@ -124,6 +122,43 @@ int main(void)
     RUN_TEST(test_ft_strlcat_basic);
     RUN_TEST(test_ft_strlcat_truncate);
     RUN_TEST(test_ft_strlcat_zero_length);
+
+    printf("\n\n---- FT_TOUPPER ----\n\n");
+    RUN_TEST(test_ft_toupper_basic);
+    RUN_TEST(test_ft_toupper_extended);
+
+    printf("\n\n---- FT_TOLOWER ----\n\n");
+    RUN_TEST(test_ft_tolower_basic);
+    RUN_TEST(test_ft_tolower_extended);
+
+    printf("\n\n---- FT_STRMAPI ----\n\n");
+    RUN_TEST(test_ft_strmapi_basic);
+    RUN_TEST(test_ft_strmapi_empty_string);
+
+    printf("\n\n---- FT_STRJOIN ----\n\n");
+    RUN_TEST(test_ft_strjoin_basic);
+    RUN_TEST(test_ft_strjoin_empty_strings);
+    RUN_TEST(test_ft_strjoin_one_empty_string);
+
+    printf("\n\n---- FT_STRITERI ----\n\n");
+    RUN_TEST(test_ft_striteri_basic);
+    RUN_TEST(test_ft_striteri_empty_string);
+
+    printf("\n\n---- FT_STRDUP ----\n\n");
+    RUN_TEST(test_ft_strdup_basic);
+    RUN_TEST(test_ft_strdup_empty_string);
+
+    printf("\n\n---- FT_STRNCMP ----\n\n");
+    RUN_TEST(test_ft_strncmp_basic);
+    RUN_TEST(test_ft_strncmp_empty_strings);
+
+    printf("\n\n---- FT_STRCHR ----\n\n");
+    RUN_TEST(test_ft_strchr_basic);
+    RUN_TEST(test_ft_strchr_empty_string);
+
+    printf("\n\n---- FT_STRRCHR ----\n\n");
+    RUN_TEST(test_ft_strrchr_basic);
+    RUN_TEST(test_ft_strrchr_empty_string);
 
     return UNITY_END();
 }
