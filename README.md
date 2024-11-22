@@ -12,4 +12,4 @@ Clone it in the same directory as your libft/ folder, then run `make`.
 It absolutely might not work. I didn't test it much.
 Also, It doesn't test all libft functions. You especially might want to manually test the bonus functions.
 
-Built with (Unity)[https://github.com/ThrowTheSwitch/Unity].
+Built with [Unity](https://github.com/ThrowTheSwitch/Unity).
