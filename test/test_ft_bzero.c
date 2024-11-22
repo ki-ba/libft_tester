@@ -1,6 +1,7 @@
 #include "unity.h"
-#include "../libft.h"
+#include "libft.h"
 #include <strings.h>
+#include "test.h"
 
 void test_ft_bzero_basic(void) {
     char s[50] = "Hello, world!";

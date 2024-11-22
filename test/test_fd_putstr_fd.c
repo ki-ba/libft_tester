@@ -1,7 +1,8 @@
 #include "unity.h"
-#include "../libft.h"
+#include "libft.h"
 #include <fcntl.h>
 #include <unistd.h>
+#include "test.h"
 
 void test_ft_putstr_fd_basic(void) {
     int fd = open("test_putstr_fd.txt", O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);

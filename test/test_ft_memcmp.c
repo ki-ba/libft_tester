@@ -1,6 +1,7 @@
 #include "unity.h"
-#include "../libft.h"
+#include "libft.h"
 #include <string.h>
+#include "test.h"
 
 void test_ft_memcmp_basic(void) {
     char s1[50] = "Hello, world!";

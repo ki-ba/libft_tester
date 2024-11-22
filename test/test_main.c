@@ -1,7 +1,5 @@
 #include "unity.h"
-#include "../libft.h"
 #include "test.h"
-#include <stdio.h>
 
 void setUp(void) {
     printf("\n");

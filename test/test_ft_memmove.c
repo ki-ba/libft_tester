@@ -1,5 +1,6 @@
 #include "unity.h"
-#include "../libft.h"
+#include "libft.h"
+#include "test.h"
 
 void test_ft_memmove_basic(void) {
     char dest[50] = "Hello, world!";

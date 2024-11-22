@@ -1,6 +1,7 @@
 #include "unity.h"
-#include "../libft.h"
+#include "libft.h"
 #include <string.h>
+#include "test.h"
 
 extern void *ft_memset(void *b, int c, size_t len);
 

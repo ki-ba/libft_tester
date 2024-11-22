@@ -1,5 +1,6 @@
 #include "unity.h"
-#include "../libft.h"
+#include "libft.h"
+#include "test.h"
 
 void test_ft_isalnum_basic(void) {
     TEST_ASSERT_TRUE(ft_isalnum('a'));

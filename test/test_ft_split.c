@@ -1,5 +1,5 @@
 #include "unity.h"
-#include "../libft.h"
+#include "libft.h"
 #include <stdlib.h>
 
 extern char **ft_split(char const *s, char c);
@@ -9,7 +9,7 @@ void test_ft_split_basic(void) {
     TEST_ASSERT_EQUAL_STRING("hello", result[0]);
     TEST_ASSERT_EQUAL_STRING("world", result[1]);
     TEST_ASSERT_NULL(result[2]);
-    
+
     for (int i = 0; result[i] != NULL; i++) {
         free(result[i]);
     }

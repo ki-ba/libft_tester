@@ -1,6 +1,7 @@
 #include "unity.h"
-#include "../libft.h"
+#include "libft.h"
 #include <stdlib.h>
+#include "test.h"
 
 void test_ft_calloc_basic(void) {
     int *arr = (int *)ft_calloc(5, sizeof(int));
