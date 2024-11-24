@@ -3,7 +3,7 @@ CC = cc
 FLAGS = -Wall -Wextra -Werror
 TESTDIR = test/
 
-LIBDIR = libft/
+LIBDIR = ../libft/
 LIB = $(LIBDIR)libft.a
 
 TESTNSRC = test_fd_putendl_fd.c  test_fd_putstr_fd.c  test_ft_atoi.c \
@@ -13,7 +13,7 @@ test_ft_memmove.c  test_ft_memset.c  test_ft_putchar_fd.c  test_ft_split.c \
 test_ft_strlcat.c  test_ft_strlcpy.c  test_ft_strlen.c  test_ft_strnstr.c \
 test_main.c  test_strtrim.c  ft_test_toupper.c  ft_test_tolower.c \
 ft_test_strrchr.c  ft_test_strmapi.c  ft_test_strjoin.c  ft_test_striteri.c \
-ft_test_strdup.c  ft_test_strncmp.c  ft_test_strchr.c
+ft_test_strdup.c  ft_test_strncmp.c  ft_test_strchr.c ft_test_lst.c
 
 .PHONY: all clean fclean re all lib
 
@@ -25,11 +25,11 @@ OBJ = $(SRC:.c=.o)
 
 $(NAME): $(OBJ) $(LIB) Makefile
 	@echo "Compiling test files..."
-	$(CC) -o $@ $(OBJ) unity/src/unity.c -I unity/src -I $(LIBDIR) -L $(LIBDIR) -lft -lbsd
+	$(CC) -g -o $@ $(OBJ) unity/src/unity.c -I unity/src -I $(LIBDIR) -L $(LIBDIR) -lft
 	@echo "Done."
 
 %.o: %.c
-	$(CC) $(FLAGS) -I $(LIBDIR) -I unity/src -c $< -o $@
+	$(CC) -g -I $(LIBDIR) -I unity/src -c $< -o $@
 
 $(LIB):
 	@echo "Compiling libft..."

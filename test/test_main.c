@@ -160,5 +160,9 @@ int main(void)
     RUN_TEST(test_ft_strrchr_basic);
     RUN_TEST(test_ft_strrchr_empty_string);
 
+    printf("\n\n---- BONUS ----\n\n");
+    RUN_TEST(test_ft_lst_add_front);
+    RUN_TEST(test_ft_lst_add_back);
+
     return UNITY_END();
 }

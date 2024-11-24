@@ -6,7 +6,7 @@
 /*   By: kbarru <kbarru@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 18:09:54 by kbarru            #+#    #+#             */
-/*   Updated: 2024/11/22 08:53:50 by kbarru           ###   ########lyon.fr   */
+/*   Updated: 2024/11/24 19:02:27 by kbarru           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@
 # include <stdio.h>
 # include <stdlib.h>
 
+#ifdef __APPLE__
+# include <string.h>
+#endif
+
+#ifdef __linux__
+# include <bsd/string.h>
+#endif
 void	test_ft_atoi_with_positive_numbers(void);
 void	test_ft_atoi_with_negative_numbers(void);
 void	test_ft_atoi_with_zero(void);
@@ -140,4 +147,6 @@ void	test_ft_strncmp_empty_strings(void);
 void	test_ft_strchr_basic(void);
 void	test_ft_strchr_empty_string(void);
 
+void    test_ft_lst_add_back(void);
+void    test_ft_lst_add_front(void);
 #endif
