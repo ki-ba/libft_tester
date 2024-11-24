@@ -6,7 +6,7 @@
 /*   By: kbarru <kbarru@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 18:09:54 by kbarru            #+#    #+#             */
-/*   Updated: 2024/11/24 19:02:27 by kbarru           ###   ########lyon.fr   */
+/*   Updated: 2024/11/24 20:41:05 by kbarru           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "unity.h"
 # include <stdio.h>
 # include <stdlib.h>
+# include <fcntl.h>
 
 #ifdef __APPLE__
 # include <string.h>
@@ -149,4 +150,24 @@ void	test_ft_strchr_empty_string(void);
 
 void    test_ft_lst_add_back(void);
 void    test_ft_lst_add_front(void);
+
+void    test_ft_memchr_basic(void);
+void    test_ft_memchr_not_found(void);
+void    test_ft_memchr_empty_string(void);
+
+void    test_ft_substr_basic(void);
+void    test_ft_substr_empty_string(void);
+void    test_ft_substr_out_of_bounds(void);
+
+void    test_ft_itoa_basic(void);
+void    test_ft_itoa_negative(void);
+void    test_ft_itoa_zero(void);
+
+void    test_ft_putnbr_fd_basic(void);
+void    test_ft_putnbr_fd_negative(void);
+void    test_ft_putnbr_fd_zero(void);
+
+void    test_ft_isascii_basic(void);
+void    test_ft_isascii_extended(void);
+
 #endif

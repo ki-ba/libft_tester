@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_test_lst.c                                      :+:      :+:    :+:   */
+/*   test_ft_lst.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbarru <kbarru@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 17:42:43 by kbarru            #+#    #+#             */
-/*   Updated: 2024/11/24 19:02:22 by kbarru           ###   ########lyon.fr   */
+/*   Updated: 2024/11/24 20:20:52 by kbarru           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "unity.h"
+#include "test.h"
 
 void ft_lsttoupper(void *content)
 {
@@ -35,18 +34,18 @@ void ft_lsttolower(void *content)
 
 void    del(void *content)
 {
-    content = NULL;
+    (void)content;
 }
 
-static void ft_print_lst(t_list *head)
-{
-    t_list *current = head;
-    while (current != NULL)
-    {
-        printf("%s\n", (char *)current->content);
-        current = current->next;
-    }
-}
+// static void ft_print_lst(t_list *head)
+// {
+//     t_list *current = head;
+//     while (current != NULL)
+//     {
+//         printf("%s\n", (char *)current->content);
+//         current = current->next;
+//     }
+// }
 
 void test_ft_lst_add_back(void)
 {

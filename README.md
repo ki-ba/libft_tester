@@ -1,4 +1,4 @@
-# SLT
+# S.L.T.
 
 ## Sloppy Libft Tester
 
@@ -7,9 +7,8 @@ I use it for quick evaluations; do not use it to test your libft before submitti
 
 ### Installation
 
-Clone it in the same directory as your libft/ folder, then run `make`.
+Clone it in the same directory as your libft/ folder, then run `make run`.
 
-It absolutely might not work. I didn't test it much.
-Also, It doesn't test all libft functions. You especially might want to manually test the bonus functions.
+It absolutely might not work. Also, you might want to manually test some of the bonus functions.
 
-Built with [Unity](https://github.com/ThrowTheSwitch/Unity).
+Made with [Unity](https://github.com/ThrowTheSwitch/Unity).

@@ -1,44 +1,57 @@
 NAME = run_tests
 CC = cc
 FLAGS = -Wall -Wextra -Werror
-TESTDIR = test/
 
+
+# ----- DIRECTORIES -----
+
+SRCDIR = src/
+OBJDIR = .obj/
 LIBDIR = ../libft/
+
+# ----- FILES -----
 LIB = $(LIBDIR)libft.a
 
-TESTNSRC = test_fd_putendl_fd.c  test_fd_putstr_fd.c  test_ft_atoi.c \
+NSRC = test_ft_putendl_fd.c  test_ft_putstr_fd.c  test_ft_atoi.c \
 test_ft_bzero.c  test_ft_calloc.c  test_ft_isalnum.c  test_ft_isalpha.c \
 test_ft_isdigit.c  test_ft_isprint.c  test_ft_memcmp.c  test_ft_memcpy.c \
 test_ft_memmove.c  test_ft_memset.c  test_ft_putchar_fd.c  test_ft_split.c \
 test_ft_strlcat.c  test_ft_strlcpy.c  test_ft_strlen.c  test_ft_strnstr.c \
-test_main.c  test_strtrim.c  ft_test_toupper.c  ft_test_tolower.c \
-ft_test_strrchr.c  ft_test_strmapi.c  ft_test_strjoin.c  ft_test_striteri.c \
-ft_test_strdup.c  ft_test_strncmp.c  ft_test_strchr.c ft_test_lst.c
+test_main.c  test_strtrim.c  test_ft_toupper.c  test_ft_tolower.c \
+test_ft_strrchr.c  test_ft_strmapi.c  test_ft_strjoin.c  test_ft_striteri.c \
+test_ft_strdup.c  test_ft_strncmp.c  test_ft_strchr.c test_ft_lst.c \
+test_ft_memchr.c test_ft_substr.c test_ft_itoa.c test_ft_putnbr_fd.c \
+test_ft_isascii.c
 
-.PHONY: all clean fclean re all lib
+.PHONY: all clean fclean re all
 
-SRC = $(addprefix $(TESTDIR), $(TESTNSRC))
 
-OBJ = $(SRC:.c=.o)
+SRC = $(addprefix $(SRCDIR), $(NSRC))
+
+OBJ = $(addprefix $(OBJDIR), $(NSRC:.c=.o))
 
 # --- RULES ---
 
 $(NAME): $(OBJ) $(LIB) Makefile
 	@echo "Compiling test files..."
-	$(CC) -g -o $@ $(OBJ) unity/src/unity.c -I unity/src -I $(LIBDIR) -L $(LIBDIR) -lft
+	@$(CC) -o $@ $(OBJ) unity/src/unity.c -I unity/src -I $(LIBDIR) -L $(LIBDIR) -lft
 	@echo "Done."
 
-%.o: %.c
-	$(CC) -g -I $(LIBDIR) -I unity/src -c $< -o $@
+$(OBJDIR)%.o: $(SRCDIR)%.c Makefile $(LIB) | $(OBJDIR)
+	@$(CC) $(FLAGS) -I $(LIBDIR) -I unity/src -c $< -o $@
 
 $(LIB):
 	@echo "Compiling libft..."
 	@make -C $(LIBDIR) all bonus
 	@echo "Done."
 
+$(OBJDIR):
+	@mkdir -p $(OBJDIR)
+
 clean:
 	@echo "Cleaning object files..."
-	@rm -f $(OBJ)
+	rm -f $(OBJ)
+	@rmdir $(OBJDIR)
 	@echo "Done."
 
 fclean: clean
@@ -46,4 +59,8 @@ fclean: clean
 	@rm -f $(NAME)
 	@echo "Done."
 
-re: fclean all
+run : $(NAME)
+	./$(NAME)
+
+re: fclean
+	$(MAKE) $(NAME)
