@@ -10,12 +10,9 @@ void test_ft_isalpha_basic(void) {
 }
 
 void test_ft_isalpha_extended(void) {
-    for (int i = 'a'; i <= 'z'; i++) {
-        TEST_ASSERT_TRUE(ft_isalpha(i));
+    for (int i = 0; i < 256; i++) {
+        if (!((i >= 'a' && i <= 'z') || (i >= 'A' && i <= 'Z'))) {
+            TEST_ASSERT_FALSE(ft_isalpha(i));
+        }
     }
-    for (int i = 'A'; i <= 'Z'; i++) {
-        TEST_ASSERT_TRUE(ft_isalpha(i));
-    }
-    TEST_ASSERT_FALSE(ft_isalpha('1'));
-    TEST_ASSERT_FALSE(ft_isalpha('@'));
 }

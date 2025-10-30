@@ -2,7 +2,6 @@ NAME = run_tests
 CC = cc
 FLAGS = -Wall -Wextra -Werror
 
-
 # ----- DIRECTORIES -----
 
 SRCDIR = src/
@@ -34,7 +33,7 @@ OBJ = $(addprefix $(OBJDIR), $(NSRC:.c=.o))
 
 $(NAME): $(OBJ) $(LIB) Makefile
 	@echo "Compiling test files..."
-	@$(CC) -o $@ $(OBJ) unity/src/unity.c -I unity/src -I $(LIBDIR) -L $(LIBDIR) -lft
+	@$(CC) -o $@ $(OBJ) unity/src/unity.c -I unity/src -I $(LIBDIR) -L $(LIBDIR) -lft -lbsd
 	@echo "Done."
 
 $(OBJDIR)%.o: $(SRCDIR)%.c Makefile $(LIB) | $(OBJDIR)
