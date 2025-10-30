@@ -1,18 +1,9 @@
 #include "unity.h"
 #include "libft.h"
 #include "test.h"
-
-void test_ft_isprint_basic(void) {
-    TEST_ASSERT_TRUE(ft_isprint('A'));
-    TEST_ASSERT_TRUE(ft_isprint(' '));
-    TEST_ASSERT_FALSE(ft_isprint('\n'));
-    TEST_ASSERT_FALSE(ft_isprint(127));
-}
+#include <ctype.h>
 
 void test_ft_isprint_extended(void) {
-    for (int i = 32; i < 127; i++) {
-        TEST_ASSERT_TRUE(ft_isprint(i));
-    }
-    TEST_ASSERT_FALSE(ft_isprint(31));
-    TEST_ASSERT_FALSE(ft_isprint(128));
+    for (int i = 0; i < 256; i++)
+        TEST_ASSERT_EQUAL(ft_isprint(i), isprint(i));
 }

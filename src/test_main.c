@@ -42,7 +42,6 @@ int main(void)
     RUN_TEST(test_ft_isascii_extended);
 
     printf("\n\n---- FT_ISPRINT ----\n\n");
-    RUN_TEST(test_ft_isprint_basic);
     RUN_TEST(test_ft_isprint_extended);
 
         printf("\n\n---- FT_STRLEN ----\n\n");
