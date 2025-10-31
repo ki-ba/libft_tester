@@ -38,7 +38,8 @@ OBJ = $(addprefix $(OBJDIR), $(NSRC:.c=.o))
 
 # --- RULES ---
 
-$(NAME): $(OBJ) $(LIB) Makefile
+$(NAME): $(OBJ) Makefile
+	$(MAKE) $(LIB)
 	@echo "Compiling test files..."
 	@$(CC) -o $@ $(OBJ) unity/src/unity.c -I unity/src -I $(LIBDIR) -L $(LIBDIR) -lft $(LINUX_FLAGS)
 	@echo "Done."

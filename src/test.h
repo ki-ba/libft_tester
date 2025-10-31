@@ -64,11 +64,13 @@ void	test_ft_memmove_basic(void);
 void	test_ft_memmove_overlap(void);
 void	test_ft_memmove_no_overlap(void);
 void	test_ft_memmove_zero_length(void);
+void	test_ft_memmove_random_data(void);
 
 void	test_ft_memcpy_basic(void);
 void	test_ft_memcpy_overlap(void);
 void	test_ft_memcpy_no_overlap(void);
 void	test_ft_memcpy_zero_length(void);
+void	test_ft_memcpy_random_data(void);
 
 void	test_ft_memcmp_basic(void);
 void	test_ft_memcmp_equal(void);

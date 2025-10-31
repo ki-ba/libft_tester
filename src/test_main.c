@@ -65,12 +65,14 @@ int main(void)
     RUN_TEST(test_ft_memcpy_overlap);
     RUN_TEST(test_ft_memcpy_no_overlap);
     RUN_TEST(test_ft_memcpy_zero_length);
+    RUN_TEST(test_ft_memcpy_random_data);
 
     printf("\n\n---- FT_MEMMOVE ----\n\n");
     RUN_TEST(test_ft_memmove_basic);
     RUN_TEST(test_ft_memmove_overlap);
     RUN_TEST(test_ft_memmove_no_overlap);
     RUN_TEST(test_ft_memmove_zero_length);
+    RUN_TEST(test_ft_memmove_random_data);
 
     printf("\n\n---- FT_STRLCPY ----\n\n");
     RUN_TEST(test_ft_strlcpy_basic);

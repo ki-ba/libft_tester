@@ -40,3 +40,20 @@ void test_ft_memcpy_zero_length(void) {
     memcpy(dest2, src2, 0);
     TEST_ASSERT_EQUAL_STRING(dest2, dest);
 }
+
+void test_ft_memcpy_random_data(void) {
+    unsigned char dest[50];
+    unsigned char dest2[50];
+
+    int source_fd = open("/dev/urandom", O_RDONLY);
+    unsigned char source[50];
+
+    read(source_fd, source, 50);
+    close(source_fd);
+
+
+    memcpy(dest, &source, sizeof(source));
+    ft_memcpy(dest2, &source, sizeof(source));
+
+    TEST_ASSERT_EQUAL_MEMORY(dest2, dest, 50);
+}
