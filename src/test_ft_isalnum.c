@@ -1,25 +1,11 @@
 #include "unity.h"
 #include "libft.h"
 #include "test.h"
+#include <limits.h>
+#include <ctype.h>
 
-void test_ft_isalnum_basic(void) {
-    TEST_ASSERT_TRUE(ft_isalnum('a'));
-    TEST_ASSERT_TRUE(ft_isalnum('Z'));
-    TEST_ASSERT_TRUE(ft_isalnum('5'));
-    TEST_ASSERT_FALSE(ft_isalnum(' '));
-    TEST_ASSERT_FALSE(ft_isalnum('@'));
-}
-
-void test_ft_isalnum_extended(void) {
-    for (int i = 'a'; i <= 'z'; i++) {
-        TEST_ASSERT_TRUE(ft_isalnum(i));
+void test_ft_isalnum(void) {
+    for (int i = 0; i <= UCHAR_MAX; i++) {
+        TEST_ASSERT_EQUAL(isalnum(i) != 0, ft_isalnum(i) != 0);
     }
-    for (int i = 'A'; i <= 'Z'; i++) {
-        TEST_ASSERT_TRUE(ft_isalnum(i));
-    }
-    for (int i = '0'; i <= '9'; i++) {
-        TEST_ASSERT_TRUE(ft_isalnum(i));
-    }
-    TEST_ASSERT_FALSE(ft_isalnum(' '));
-    TEST_ASSERT_FALSE(ft_isalnum('@'));
 }

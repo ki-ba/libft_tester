@@ -1,18 +1,11 @@
 #include "unity.h"
 #include "libft.h"
 #include "test.h"
+#include <limits.h>
+#include <ctype.h>
 
-void test_ft_isalpha_basic(void) {
-    TEST_ASSERT_TRUE(ft_isalpha('a'));
-    TEST_ASSERT_TRUE(ft_isalpha('Z'));
-    TEST_ASSERT_FALSE(ft_isalpha('1'));
-    TEST_ASSERT_FALSE(ft_isalpha(' '));
-}
-
-void test_ft_isalpha_extended(void) {
-    for (int i = 0; i < 256; i++) {
-        if (!((i >= 'a' && i <= 'z') || (i >= 'A' && i <= 'Z'))) {
-            TEST_ASSERT_FALSE(ft_isalpha(i));
-        }
+void test_ft_isalpha(void) {
+    for (int i = 0; i <= UCHAR_MAX; i++) {
+        TEST_ASSERT_EQUAL(isalpha(i) != 0, ft_isalpha(i) != 0);
     }
 }

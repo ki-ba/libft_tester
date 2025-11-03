@@ -26,33 +26,32 @@ int main(void)
 
 
     printf("\n\n---- FT_ISALPHA ----\n\n");
-    RUN_TEST(test_ft_isalpha_basic);
-    RUN_TEST(test_ft_isalpha_extended);
+    RUN_TEST(test_ft_isalpha);
 
     printf("\n\n---- FT_ISDIGIT ----\n\n");
     RUN_TEST(test_ft_isdigit_basic);
     RUN_TEST(test_ft_isdigit_extended);
 
     printf("\n\n---- FT_ISALNUM ----\n\n");
-    RUN_TEST(test_ft_isalnum_basic);
-    RUN_TEST(test_ft_isalnum_extended);
+    RUN_TEST(test_ft_isalnum);
 
     printf("\n\n---- FT_ISASCII ----\n\n");
-    RUN_TEST(test_ft_isascii_basic);
-    RUN_TEST(test_ft_isascii_extended);
+    RUN_TEST(test_ft_isascii);
 
     printf("\n\n---- FT_ISPRINT ----\n\n");
-    RUN_TEST(test_ft_isprint_extended);
+    RUN_TEST(test_ft_isprint);
 
         printf("\n\n---- FT_STRLEN ----\n\n");
     RUN_TEST(test_ft_strlen_basic);
     RUN_TEST(test_ft_strlen_empty_string);
+    RUN_TEST(test_ft_strlen_long_string);
     
     printf("\n\n---- FT_MEMSET ----\n\n");
     RUN_TEST(test_ft_memset_basic);
     RUN_TEST(test_ft_memset_zero_length);
     RUN_TEST(test_ft_memset_full_length);
     RUN_TEST(test_ft_memset_partial_length);
+    RUN_TEST(test_ft_memset_non_printable);
 
     printf("\n\n---- FT_BZERO ----\n\n");
     RUN_TEST(test_ft_bzero_basic);
@@ -85,12 +84,10 @@ int main(void)
     RUN_TEST(test_ft_strlcat_zero_length);
 
     printf("\n\n---- FT_TOUPPER ----\n\n");
-    RUN_TEST(test_ft_toupper_basic);
-    RUN_TEST(test_ft_toupper_extended);
+    RUN_TEST(test_ft_toupper);
 
     printf("\n\n---- FT_TOLOWER ----\n\n");
-    RUN_TEST(test_ft_tolower_basic);
-    RUN_TEST(test_ft_tolower_extended);
+    RUN_TEST(test_ft_tolower);
 
     printf("\n\n---- FT_STRCHR ----\n\n");
     RUN_TEST(test_ft_strchr_basic);
@@ -203,6 +200,8 @@ int main(void)
     
     RUN_TEST(test_ft_lst_add_front);
     RUN_TEST(test_ft_lst_add_back);
+    RUN_TEST(test_ft_lst_map);
+    RUN_TEST(test_ft_lstiter);
 
     return UNITY_END();
 }

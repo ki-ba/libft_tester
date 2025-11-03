@@ -86,9 +86,11 @@ void	test_ft_memset_basic(void);
 void	test_ft_memset_zero_length(void);
 void	test_ft_memset_full_length(void);
 void	test_ft_memset_partial_length(void);
+void 	test_ft_memset_non_printable(void);
 
 void	test_ft_strlen_basic(void);
 void	test_ft_strlen_empty_string(void);
+void 	test_ft_strlen_long_string(void);
 
 void	test_ft_putchar_fd_basic(void);
 
@@ -102,17 +104,14 @@ void	test_ft_putstr_fd_empty_string(void);
 void	test_ft_putendl_fd_basic(void);
 void	test_ft_putendl_fd_empty_string(void);
 
-void	test_ft_isprint_basic(void);
-void	test_ft_isprint_extended(void);
+void	test_ft_isprint(void);
 
 void	test_ft_isdigit_basic(void);
 void	test_ft_isdigit_extended(void);
 
-void	test_ft_isalpha_basic(void);
-void	test_ft_isalpha_extended(void);
+void	test_ft_isalpha(void);
 
-void	test_ft_isalnum_basic(void);
-void	test_ft_isalnum_extended(void);
+void	test_ft_isalnum(void);
 
 void	test_ft_strlcpy_basic(void);
 void	test_ft_strlcpy_truncate(void);
@@ -122,11 +121,9 @@ void	test_ft_strlcat_basic(void);
 void	test_ft_strlcat_truncate(void);
 void	test_ft_strlcat_zero_length(void);
 
-void	test_ft_toupper_basic(void);
-void	test_ft_toupper_extended(void);
+void	test_ft_toupper(void);
 
-void	test_ft_tolower_basic(void);
-void	test_ft_tolower_extended(void);
+void	test_ft_tolower(void);
 
 void	test_ft_strrchr_basic(void);
 void	test_ft_strrchr_empty_string(void);
@@ -152,6 +149,8 @@ void	test_ft_strchr_empty_string(void);
 
 void    test_ft_lst_add_back(void);
 void    test_ft_lst_add_front(void);
+void    test_ft_lst_map(void);
+void	test_ft_lstiter(void);
 
 void    test_ft_memchr_basic(void);
 void    test_ft_memchr_not_found(void);
@@ -169,7 +168,6 @@ void    test_ft_putnbr_fd_basic(void);
 void    test_ft_putnbr_fd_negative(void);
 void    test_ft_putnbr_fd_zero(void);
 
-void    test_ft_isascii_basic(void);
-void    test_ft_isascii_extended(void);
+void    test_ft_isascii(void);
 
 #endif

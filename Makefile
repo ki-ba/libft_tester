@@ -4,7 +4,7 @@ CC = cc
 FLAGS = -Wall -Wextra -Werror
 
 
-UNAME := $(uname -s)
+UNAME := $(shell uname -s)
 ifeq ($(UNAME), Linux)
 LINUX_FLAGS= -lbsd
 endif
@@ -41,7 +41,7 @@ OBJ = $(addprefix $(OBJDIR), $(NSRC:.c=.o))
 $(NAME): $(OBJ) Makefile
 	$(MAKE) $(LIB)
 	@echo "Compiling test files..."
-	@$(CC) -o $@ $(OBJ) unity/src/unity.c -I unity/src -I $(LIBDIR) -L $(LIBDIR) -lft $(LINUX_FLAGS)
+	$(CC) -o $@ $(OBJ) unity/src/unity.c -I unity/src -I $(LIBDIR) -L $(LIBDIR) -lft $(LINUX_FLAGS)
 	@echo "Done."
 
 $(OBJDIR)%.o: $(SRCDIR)%.c Makefile $(LIB) | $(OBJDIR)
