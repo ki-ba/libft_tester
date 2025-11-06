@@ -41,3 +41,17 @@ void test_ft_strlcpy_zero_length(void) {
     TEST_ASSERT_EQUAL_STRING(dest2, dest);
     TEST_ASSERT_EQUAL_UINT(result2, result);
 }
+
+void test_ft_strlcpy_null_src(void)
+{
+    struct { char *dest; char *src; size_t len; size_t (*f)(char *, const char *, size_t); } ctx1 = { "", NULL, 10, ft_strlcpy };
+    struct { char *dest; char *src; size_t len; size_t (*f)(char *, const char *, size_t); } ctx2 = { "", NULL, 10, strlcpy };
+    test_signal_equivalence(adapter_strlcpy, &ctx1, adapter_strlcpy, &ctx2);
+}
+
+void test_ft_strlcpy_null_dest(void)
+{
+    struct { char *dest; char *src; size_t len; size_t (*f)(char *, const char *, size_t); } ctx1 = { NULL, "Hello", 10, ft_strlcpy };
+    struct { char *dest; char *src; size_t len; size_t (*f)(char *, const char *, size_t); } ctx2 = { NULL, "Hello", 10, strlcpy };
+    test_signal_equivalence(adapter_strlcpy, &ctx1, adapter_strlcpy, &ctx2);
+}

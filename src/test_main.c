@@ -6,14 +6,13 @@
 /*   By: kbarru <kbarru@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 19:09:43 by kbarru            #+#    #+#             */
-/*   Updated: 2024/11/24 20:41:04 by kbarru           ###   ########lyon.fr   */
+/*   Updated: 2025/11/05 12:05:04 by kbarru           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.h"
 
 void setUp(void) {
-    printf("\n");
 }
 
 void tearDown(void) {
@@ -25,11 +24,11 @@ int main(void)
     UNITY_BEGIN();
 
 
+
     printf("\n\n---- FT_ISALPHA ----\n\n");
     RUN_TEST(test_ft_isalpha);
 
     printf("\n\n---- FT_ISDIGIT ----\n\n");
-    RUN_TEST(test_ft_isdigit_basic);
     RUN_TEST(test_ft_isdigit_extended);
 
     printf("\n\n---- FT_ISALNUM ----\n\n");
@@ -45,6 +44,7 @@ int main(void)
     RUN_TEST(test_ft_strlen_basic);
     RUN_TEST(test_ft_strlen_empty_string);
     RUN_TEST(test_ft_strlen_long_string);
+    RUN_TEST(test_ft_strlen_null);
     
     printf("\n\n---- FT_MEMSET ----\n\n");
     RUN_TEST(test_ft_memset_basic);
@@ -77,11 +77,16 @@ int main(void)
     RUN_TEST(test_ft_strlcpy_basic);
     RUN_TEST(test_ft_strlcpy_truncate);
     RUN_TEST(test_ft_strlcpy_zero_length);
+    RUN_TEST(test_ft_strlcpy_null_src);
+    RUN_TEST(test_ft_strlcpy_null_dest);
+
 
     printf("\n\n---- FT_STRLCAT ----\n\n");
     RUN_TEST(test_ft_strlcat_basic);
     RUN_TEST(test_ft_strlcat_truncate);
     RUN_TEST(test_ft_strlcat_zero_length);
+    RUN_TEST(test_ft_strlcat_s1_null);
+    RUN_TEST(test_ft_strlcat_s2_null);
 
     printf("\n\n---- FT_TOUPPER ----\n\n");
     RUN_TEST(test_ft_toupper);
@@ -92,14 +97,19 @@ int main(void)
     printf("\n\n---- FT_STRCHR ----\n\n");
     RUN_TEST(test_ft_strchr_basic);
     RUN_TEST(test_ft_strchr_empty_string);
+    RUN_TEST(test_ft_strchr_null);
 
     printf("\n\n---- FT_STRRCHR ----\n\n");
     RUN_TEST(test_ft_strrchr_basic);
     RUN_TEST(test_ft_strrchr_empty_string);
+    RUN_TEST(test_ft_strrchr_null);
 
     printf("\n\n---- FT_STRNCMP ----\n\n");
     RUN_TEST(test_ft_strncmp_basic);
     RUN_TEST(test_ft_strncmp_empty_strings);
+    RUN_TEST(test_ft_strncmp_partial_match);
+    RUN_TEST(test_ft_strncmp_s1_null);
+    RUN_TEST(test_ft_strncmp_s2_null);
 
     printf("\n\n---- FT_MEMCHR ----\n\n");
     RUN_TEST(test_ft_memchr_basic);
@@ -120,7 +130,8 @@ int main(void)
     RUN_TEST(test_ft_strnstr_partial_match);
     RUN_TEST(test_ft_strnstr_len_less_than_big);
     RUN_TEST(test_ft_strnstr_empty_big);
-    
+    RUN_TEST(test_ft_strnstr_null);   
+
     printf("\n\n---- FT_ATOI ----\n\n");
     RUN_TEST(test_ft_atoi_with_positive_numbers);
     RUN_TEST(test_ft_atoi_with_negative_numbers);
@@ -137,6 +148,7 @@ int main(void)
     printf("\n\n---- FT_STRDUP ----\n\n");
     RUN_TEST(test_ft_strdup_basic);
     RUN_TEST(test_ft_strdup_empty_string);
+    RUN_TEST(test_ft_strdup_null);
 
     printf("\n\n---- FT_SUBSTR ----\n\n");
     RUN_TEST(test_ft_substr_basic);

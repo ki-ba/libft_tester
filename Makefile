@@ -9,11 +9,14 @@ ifeq ($(UNAME), Linux)
 LINUX_FLAGS= -lbsd
 endif
 
+IGNORE_SIGNALS ?= 0
+
 # ----- DIRECTORIES -----
 
 SRCDIR = src/
 OBJDIR = .obj/
-LIBDIR = ../libft/
+INC_DIR = inc/
+LIBDIR ?= ../libft/
 
 # ----- FILES -----
 LIB = $(LIBDIR)libft.a
@@ -27,7 +30,7 @@ test_main.c  test_strtrim.c  test_ft_toupper.c  test_ft_tolower.c \
 test_ft_strrchr.c  test_ft_strmapi.c  test_ft_strjoin.c  test_ft_striteri.c \
 test_ft_strdup.c  test_ft_strncmp.c  test_ft_strchr.c test_ft_lst.c \
 test_ft_memchr.c test_ft_substr.c test_ft_itoa.c test_ft_putnbr_fd.c \
-test_ft_isascii.c
+test_ft_isascii.c test_return_val.c
 
 .PHONY: all clean fclean re all
 
@@ -38,18 +41,17 @@ OBJ = $(addprefix $(OBJDIR), $(NSRC:.c=.o))
 
 # --- RULES ---
 
-$(NAME): $(OBJ) Makefile
-	$(MAKE) $(LIB)
+$(NAME): $(OBJ) $(LIB) Makefile
 	@echo "Compiling test files..."
-	$(CC) -o $@ $(OBJ) unity/src/unity.c -I unity/src -I $(LIBDIR) -L $(LIBDIR) -lft $(LINUX_FLAGS)
+	$(CC) -o $@ $(OBJ) unity/src/unity.c -I unity/src -I $(LIBDIR) -I $(INC_DIR) -L $(LIBDIR) -lft $(LINUX_FLAGS) -D IGNORE_SIGNALS=$(IGNORE_SIGNALS)
 	@echo "Done."
 
 $(OBJDIR)%.o: $(SRCDIR)%.c Makefile $(LIB) | $(OBJDIR)
-	@$(CC) $(FLAGS) -I $(LIBDIR) -I unity/src -c $< -o $@
+	@$(CC) $(FLAGS) -I $(LIBDIR) -I $(INC_DIR) -I unity/src -D IGNORE_SIGNALS=$(IGNORE_SIGNALS) -c $< -o $@
 
 $(LIB):
 	@echo "Compiling libft..."
-	@make -C $(LIBDIR) all bonus
+	make -C $(LIBDIR) all
 	@echo "Done."
 
 $(OBJDIR):
@@ -58,16 +60,16 @@ $(OBJDIR):
 clean:
 	@echo "Cleaning object files..."
 	rm -f $(OBJ)
-	@rmdir $(OBJDIR)
+	rmdir $(OBJDIR)
 	@echo "Done."
 
 fclean: clean
 	@echo "Cleaning executable..."
-	@rm -f $(NAME)
+	rm -f $(NAME)
 	@echo "Done."
-
-run : $(NAME)
-	./$(NAME)
+	@echo cleaning libft...
+	make -C $(LIBDIR) fclean
+	@echo "Done."
 
 re: fclean
 	$(MAKE) $(NAME)

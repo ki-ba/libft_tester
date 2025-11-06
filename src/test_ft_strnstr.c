@@ -50,3 +50,10 @@ void test_ft_strnstr_empty_little(void)
     char *little = "";
     TEST_ASSERT_EQUAL_STRING(big, ft_strnstr(big, little, 13));
 }
+
+void test_ft_strnstr_null(void)
+{
+    struct { const char *big; const char *little; size_t len; char *(*f)(const char *, const char *, size_t); } ctx1 = {NULL, "world", 13, ft_strnstr};
+    struct { const char *big; const char *little; size_t len; char *(*f)(const char *, const char *, size_t); } ctx2 = {NULL, "world", 13, strnstr};
+    test_signal_equivalence(adapter_strncmp, &ctx1, adapter_strncmp, &ctx2);
+}

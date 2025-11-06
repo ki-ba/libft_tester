@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_test_strdup.c                                   :+:      :+:    :+:   */
+/*   test_ft_strdup.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbarru <kbarru@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 19:09:37 by kbarru            #+#    #+#             */
-/*   Updated: 2024/11/24 19:09:37 by kbarru           ###   ########lyon.fr   */
+/*   Updated: 2025/11/05 11:59:47 by kbarru           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,11 @@ void test_ft_strdup_empty_string(void) {
     char *dup = ft_strdup(s);
     TEST_ASSERT_EQUAL_STRING(s, dup);
     free(dup);
+}
+
+void test_ft_strdup_null(void)
+{
+    struct { const char *s; char *(*f)(char *); } ctx1 = {NULL, ft_strdup};
+    struct { const char *s; char *(*f)(const char *); } ctx2 = {NULL, strdup};
+    test_signal_equivalence(adapter_strdup, &ctx1, adapter_strdup, &ctx2);
 }

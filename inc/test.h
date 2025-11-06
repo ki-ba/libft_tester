@@ -6,7 +6,7 @@
 /*   By: kbarru <kbarru@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 18:09:54 by kbarru            #+#    #+#             */
-/*   Updated: 2024/11/24 20:41:05 by kbarru           ###   ########lyon.fr   */
+/*   Updated: 2025/11/05 12:06:02 by kbarru           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,19 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
-#ifdef __APPLE__
-# include <string.h>
-#endif
+typedef void (*TestAdapter)(void *);
 
-#ifdef __linux__
-# include <bsd/string.h>
-#endif
+# ifndef IGNORE_SIGNALS
+#  define IGNORE_SIGNALS 1
+# endif
+
+# ifdef __APPLE__
+#  include <string.h>
+# endif
+
+# ifdef __linux__
+#  include <bsd/string.h>
+# endif
 void	test_ft_atoi_with_positive_numbers(void);
 void	test_ft_atoi_with_negative_numbers(void);
 void	test_ft_atoi_with_zero(void);
@@ -39,9 +45,9 @@ void	test_ft_strnstr_empty_little(void);
 void	test_ft_strnstr_little_longer_than_big(void);
 void	test_ft_strnstr_partial_match(void);
 void	test_ft_strnstr_len_less_than_big(void);
-void	test_ft_strnstr_null(void);
 void	test_ft_strnstr_empty_big(void);
 void	test_ft_strnstr_empty_little(void);
+void	test_ft_strnstr_null(void);
 
 void	test_strtrim_basic(void);
 void	test_strtrim_x(void);
@@ -91,6 +97,7 @@ void 	test_ft_memset_non_printable(void);
 void	test_ft_strlen_basic(void);
 void	test_ft_strlen_empty_string(void);
 void 	test_ft_strlen_long_string(void);
+void 	test_ft_strlen_null(void);
 
 void	test_ft_putchar_fd_basic(void);
 
@@ -116,10 +123,14 @@ void	test_ft_isalnum(void);
 void	test_ft_strlcpy_basic(void);
 void	test_ft_strlcpy_truncate(void);
 void	test_ft_strlcpy_zero_length(void);
+void	test_ft_strlcpy_null_src(void);
+void	test_ft_strlcpy_null_dest(void);
 
 void	test_ft_strlcat_basic(void);
 void	test_ft_strlcat_truncate(void);
 void	test_ft_strlcat_zero_length(void);
+void	test_ft_strlcat_s1_null(void);
+void	test_ft_strlcat_s2_null(void);
 
 void	test_ft_toupper(void);
 
@@ -127,6 +138,7 @@ void	test_ft_tolower(void);
 
 void	test_ft_strrchr_basic(void);
 void	test_ft_strrchr_empty_string(void);
+void	test_ft_strrchr_null(void);
 
 void	test_ft_strmapi_basic(void);
 void	test_ft_strmapi_empty_string(void);
@@ -140,12 +152,17 @@ void	test_ft_striteri_empty_string(void);
 
 void	test_ft_strdup_basic(void);
 void	test_ft_strdup_empty_string(void);
+void	test_ft_strdup_null(void);
 
 void	test_ft_strncmp_basic(void);
 void	test_ft_strncmp_empty_strings(void);
+void	test_ft_strncmp_partial_match(void);
+void	test_ft_strncmp_s1_null(void);
+void	test_ft_strncmp_s2_null(void);
 
 void	test_ft_strchr_basic(void);
 void	test_ft_strchr_empty_string(void);
+void	test_ft_strchr_null(void);
 
 void    test_ft_lst_add_back(void);
 void    test_ft_lst_add_front(void);
@@ -169,5 +186,17 @@ void    test_ft_putnbr_fd_negative(void);
 void    test_ft_putnbr_fd_zero(void);
 
 void    test_ft_isascii(void);
+
+
+// Adapters
+
+void adapter_strchr(void *context);
+void adapter_strlen(void *context);
+void adapter_strncmp(void *context);
+void adapter_strdup(void *context);
+void adapter_strlcpy(void *context);
+
+
+void test_signal_equivalence(TestAdapter f1, void *context1, TestAdapter f2, void *context2);
 
 #endif
