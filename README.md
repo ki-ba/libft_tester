@@ -18,7 +18,7 @@ I use it for quick evaluations; do not use it to test your libft before submitti
 
 ### Compatibility
 
-Tested on primarly on **x86 systems** running **Linux**. It should work on macOS as well, as long as your compiler supports the required functions.
+Tested primarly on **x86 systems** running **Linux**. It should work on macOS as well, as long as your compiler supports the required functions.
 
 ### Installation
 
@@ -26,12 +26,12 @@ Clone it in the same directory as your libft/ folder, compile it with `make`.
 
 ### Usage
 
+**Warning** : if you didn't do the bonus part, compilation will fail, as the tester tries to link all bonus functions.
+You really should do the whole thing anyway.
+
 Run it with `./run_tests`.
 It will look for your libft in `../libft/libft.a`.
 If your libft is located somewhere else, you can specify the path in the LIBDIR variable when running the tests, like so :
-
-**Warning** : if you didn't do the bonus part, compilation will fail, as the tester tries to link all bonus functions.
-You really should do the whole thing anyway.
 
 ```bash
  make LIBDIR=/path/to/libft_directory
@@ -50,7 +50,7 @@ Made with [Unity](https://github.com/ThrowTheSwitch/Unity).
 
 ### License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) file for details.
 
 Unity is licensed under the MIT License - see the [Unity LICENSE](https://github.com/ThrowTheSwitch/Unity/blob/master/LICENSE.txt) file for details.
 
